@@ -4,11 +4,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:
+In this project, you should first run:
+
+### `npm i`
+
+By doing so, you retrieve all the packages that were used in this project.
+
+Then you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
+Which whill run the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
