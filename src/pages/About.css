@@ -14,6 +14,7 @@
   max-width: 900px;
   width: 100%;
   gap: 2rem; /* space between avatar and card */
+  margin-bottom: 2rem;
 }
 
 /* Avatar on the left */
