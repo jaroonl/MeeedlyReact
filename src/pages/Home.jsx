@@ -4,6 +4,12 @@ import './Home.css';
 const Home = () => {
   const [count, setCount] = useState(0);
 
+  const handleDecrease = () => {
+    if (count > 0) {
+      setCount(count - 1);
+    }
+  };
+
   return (
     <div className="home-container">
       <h1 className="home-title">🏠 Home Page</h1>
@@ -17,7 +23,7 @@ const Home = () => {
         </button>
         <button
           className="button decrease"
-          onClick={() => setCount(count - 1)}
+          onClick={handleDecrease}
         >
           Decrease
         </button>
