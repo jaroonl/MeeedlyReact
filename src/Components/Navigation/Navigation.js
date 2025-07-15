@@ -1,12 +1,13 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import './Navbar.css';
+import logo from '../../Asset/Logo/meeedlyLogo.png';
+import '../../Style/Components/Navigation/Navigation.css';
 
-const Navbar = () => {
+const Navigation = () => {
   return (
     <nav className="navbar">
       <Link to="/" className="navbar-brand">
-        Meeedly React Sample App
+        <img src={logo} alt="Meeedly Logo" className="navbar-logo" />
+        React Guide
       </Link>
       <div className="navbar-links">
         <Link to="/">Home</Link>
@@ -17,4 +18,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navigation;

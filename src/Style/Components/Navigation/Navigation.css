@@ -37,3 +37,9 @@
   color: #007bff;
   border-color: #007bff;
 }
+
+.navbar-logo {
+  height: 40px; /* adjust as needed */
+  margin-right: 10px;
+  vertical-align: middle;
+}

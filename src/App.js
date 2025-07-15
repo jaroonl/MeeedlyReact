@@ -1,21 +1,15 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import Settings from './pages/Settings';
-import Navbar from './components/Navbar';
-import 'bootstrap-icons/font/bootstrap-icons.css';
+import MainRoute from "./Routes/MainRoute";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
+import './Style/Main.css';
+import './Style/Mobile.css';
+import './Style/Desktop.css';
+import './Style/Tablet.css';
 
 const App = () => {
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/settings" element={<Settings />} />
-      </Routes>
+      <MainRoute/>
     </>
   );
 };

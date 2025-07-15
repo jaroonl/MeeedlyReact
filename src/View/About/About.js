@@ -1,10 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './About.css';
-import avatar from '../assets/user.png';
-import replyIcon from '../assets/reply.svg';
-import thumbsUpIcon from '../assets/thumbsUp.svg';
-import thumbsDownIcon from '../assets/thumbsDown.svg';
+import '../../Style/About/About.css';
+import avatar from '../../Asset/Logo/user.png';
+import replyIcon from '../../Asset/SVG/reply.svg';
+import ThumbsUpIcon from '../../Asset/SVGIcons/thumbsUp';
+import ThumbsDownIcon from '../../Asset/SVGIcons/thumbsDown';
 import MoreVert from '@mui/icons-material/MoreVert';
+import Navigation from '../../Components/Navigation/Navigation';
+import DateFormats from '../../Utilities/DateFormats';
+import Footer from '../../Components/Footer/Footer';
 
 const About = () => {
   const [posts, setPosts] = useState([]);
@@ -58,12 +61,17 @@ const About = () => {
       const res = await fetch(`https://dummyjson.com/posts?limit=10&skip=${skip}`);
       const data = await res.json();
 
-      const enrichedPosts = data.posts.map(post => ({
-        ...post,
-        hoursAgo: Math.floor(Math.random() * 23) + 1,
-        likes: Math.floor(Math.random() * 200),
-        dislikes: Math.floor(Math.random() * 50)
-      }));
+      const enrichedPosts = data.posts.map(post => {
+        const createdAt = new Date(Date.now() - Math.floor(Math.random() * 10 * 24 * 60 * 60 * 1000)).toISOString();
+        console.log(`Post #${post.id} createdAt:`, createdAt);
+        return {
+          ...post,
+          createdAt,
+          likes: Math.floor(Math.random() * 200),
+          dislikes: Math.floor(Math.random() * 50)
+        };
+      });
+
 
       setPosts(prev => [...prev, ...enrichedPosts]);
       setHasMore(skip + 10 < data.total);
@@ -135,6 +143,8 @@ const About = () => {
   }, [loading, hasMore]);
 
   return (
+    <>
+    <Navigation/>
     <div className="about-page">
       <div className="review-summary-section">
         <h4 className="course-rating-title">
@@ -188,16 +198,17 @@ const About = () => {
               <div className="comment-card">
                 <h3 className="comment-author">User #{post.userId}</h3>
                 <p className="comment-time">
-                  {post.hoursAgo ? `${post.hoursAgo} hours ago` : 'Just now'}
+                  {DateFormats.agoFormat(post.createdAt)}
                 </p>
                 <p className="comment-text">{post.body}</p>
                 <div className="comment-actions">
                   <span className="icon-text">
-                    <img src={thumbsUpIcon} alt="Thumbs up" className="icon" />
+                    <ThumbsUpIcon className="icon" />
+
                     {post.likes}
                   </span>
                   <span className="icon-text">
-                    <img src={thumbsDownIcon} alt="Thumbs down" className="icon" />
+                    <ThumbsDownIcon className="icon" />
                     {post.dislikes}
                   </span>
                   <span className="reply icon-text">
@@ -216,6 +227,8 @@ const About = () => {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 
