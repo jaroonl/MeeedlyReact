@@ -1,4 +1,4 @@
-import ErrorSvg from "../../../Asset/SVG/error-404.svg";
+import ErrorSvg from "../../Asset/SVG/error-404.svg";
 
 function Error404() {
     return (

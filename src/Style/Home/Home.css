@@ -1,9 +1,9 @@
 html, body {
-  height: 100%;
   margin: 0;
   padding: 0;
+  height: 100%;
   box-sizing: border-box;
-  background-color: #f0f2f5; /* moved here */
+  background-color: #f0f2f5 !important;  
 }
 
 .page-wrapper {

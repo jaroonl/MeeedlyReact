@@ -100,10 +100,16 @@
 
 .review-summary-section {
   max-width: 1100px;
-  margin: 0 auto;
+  display: flex;
   padding: 2rem 1rem;
+  justify-content: center;
 }
 
+.review-summary-wrapper {
+  max-width: 900px;
+  width: 100%;
+  padding: 0 1rem;
+}
 
 .review-grid {
   display: grid;
@@ -181,9 +187,10 @@
 }
 
 .course-rating-title {
-  display: flex;
-  align-items: center;
-  gap: 6px; /* Adds spacing between star and text */
+  display: flex ;
+  align-items: baseline;
+  gap: 15px; /* Adds spacing between star and text */
+  margin-bottom: 1.5rem;
 }
 
 .review-box {
@@ -255,18 +262,21 @@
 .star-icon {
   color: #f4b400; /* yellow-ish */
   font-size: 16px;
-  margin-right: 2px;
+  margin-right: px;
 }
 
 .rating-star {
   width: 18px;
   height: 18px;
-  vertical-align: middle;
   color: #f4b400; /* yellow-ish */
+  flex-shrink: 0;
+  margin-left: 10px;
 }
 
 .rating-text {
   color: #555; /* or #777 or whatever grey you prefer */
+  line-height: 1; /* Ensure consistent line height */
+  margin: 0;
 }
 
 .stars-time-row {

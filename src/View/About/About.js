@@ -147,6 +147,7 @@ const About = () => {
     <Navigation/>
     <div className="about-page">
       <div className="review-summary-section">
+        <div className="review-summary-wrapper">
         <h4 className="course-rating-title">
           <i className="bi bi-star-fill rating-star"></i>
           <span className="rating-text"><strong>4.2 course rating · 2K ratings</strong></span>
@@ -184,10 +185,12 @@ const About = () => {
               )}
             </div>
           ))}
+          </div>
         </div>
       </div>
 
       <div className="user-posts-section">
+        <div className="review-summary-wrapper">
         <h4><strong>User Posts</strong></h4>
         <div className="comments-container">
           {posts.map(post => (
@@ -225,6 +228,7 @@ const About = () => {
             </div>
           )}
         </div>
+      </div>
       </div>
     </div>
     <Footer/>
